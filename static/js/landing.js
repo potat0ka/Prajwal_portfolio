@@ -65,6 +65,8 @@ class LandingPage {
         this.audioElement = document.getElementById('background-audio');
         
         if (this.audioElement) {
+            console.log('Audio element found, source:', this.audioElement.querySelector('source')?.src);
+            
             this.audioElement.volume = 0.3;
             this.audioElement.loop = true;
             
@@ -75,12 +77,26 @@ class LandingPage {
 
             this.audioElement.addEventListener('error', (e) => {
                 console.error('Audio loading error:', e);
+                console.error('Audio error details:', {
+                    code: this.audioElement.error?.code,
+                    message: this.audioElement.error?.message
+                });
                 this.showAudioError();
             });
 
             this.audioElement.addEventListener('canplaythrough', () => {
                 console.log('Audio ready to play');
             });
+
+            this.audioElement.addEventListener('loadstart', () => {
+                console.log('Audio loading started');
+            });
+
+            this.audioElement.addEventListener('loadeddata', () => {
+                console.log('Audio data loaded');
+            });
+        } else {
+            console.error('Audio element not found');
         }
     }
 
@@ -312,8 +328,10 @@ class LandingPage {
 
             const loader = new THREE.GLTFLoader();
 
+            console.log('Attempting to load guitar model from:', '/static/assets/acoustic_guitar_1751054814347.glb');
+            
             loader.load(
-                '/attached_assets/acoustic_guitar_1751054814347.glb',
+                '/static/assets/acoustic_guitar_1751054814347.glb',
                 (gltf) => {
                     try {
                         // Remove placeholder
@@ -362,6 +380,11 @@ class LandingPage {
                 },
                 (error) => {
                     console.error('Error loading guitar model:', error);
+                    console.error('Error details:', {
+                        type: error.type,
+                        message: error.message,
+                        stack: error.stack
+                    });
                     console.log('Continuing with placeholder guitar');
                     resolve(); // Don't reject, just use placeholder
                 }
@@ -454,20 +477,28 @@ class LandingPage {
     }
 
     toggleTheme() {
-        const body = document.body;
-        const themeToggle = document.getElementById('theme-toggle');
-        const icon = themeToggle?.querySelector('i');
-
-        if (body.hasAttribute('data-theme')) {
-            body.removeAttribute('data-theme');
-            if (icon) icon.className = 'fas fa-moon';
+        // Use global theme manager if available
+        if (window.themeManager) {
+            window.themeManager.toggleTheme();
+        } else if (window.toggleTheme) {
+            window.toggleTheme();
         } else {
-            body.setAttribute('data-theme', 'dark');
-            if (icon) icon.className = 'fas fa-sun';
-        }
+            // Fallback implementation
+            const body = document.body;
+            const themeToggle = document.getElementById('theme-toggle');
+            const icon = themeToggle?.querySelector('i');
 
-        // Save preference
-        localStorage.setItem('theme-preference', body.hasAttribute('data-theme') ? 'dark' : 'light');
+            if (body.hasAttribute('data-theme')) {
+                body.removeAttribute('data-theme');
+                if (icon) icon.className = 'fas fa-moon';
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                if (icon) icon.className = 'fas fa-sun';
+            }
+
+            // Save preference
+            localStorage.setItem('theme-preference', body.hasAttribute('data-theme') ? 'dark' : 'light');
+        }
         
         // Update Three.js scene lighting for theme
         this.updateSceneLighting();
