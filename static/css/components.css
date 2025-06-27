@@ -329,3 +329,34 @@
         opacity: 1;
     }
 }
+
+/* Dark Theme Variables */
+[data-theme="dark"] {
+    /* Enhanced shadows for dark theme */
+    --shadow-light: rgba(0, 0, 0, 0.4);
+    --shadow-medium: rgba(0, 0, 0, 0.5);
+    --shadow-dark: rgba(0, 0, 0, 0.7);
+}
+
+/* Dark theme button improvements */
+[data-theme="dark"] .btn-primary {
+    color: #ffffff;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .btn-primary:hover {
+    color: #ffffff;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] .btn-primary[href*="download_cv"] {
+    color: #ffffff;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    background: linear-gradient(135deg, #10b981, #059669);
+}
+
+[data-theme="dark"] .btn-primary[href*="download_cv"]:hover {
+    color: #ffffff;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
