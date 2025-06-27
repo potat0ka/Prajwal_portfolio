@@ -23,16 +23,11 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Three.js for 3D graphics -->
-    <script src="https://unpkg.com/three@0.140.0/build/three.min.js"></script>
-    <script src="https://unpkg.com/three@0.140.0/examples/js/controls/OrbitControls.js"></script>
-    <script src="https://unpkg.com/three@0.140.0/examples/js/loaders/GLTFLoader.js"></script>
-    
     <!-- Stylesheets -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     {% block extra_css %}{% endblock %}
 </head>
-<body data-theme="light">
+<body>
     {% block content %}
     <!-- Default error page -->
     <div class="container">
@@ -47,8 +42,12 @@
     </div>
     {% endblock %}
     
-    <!-- Theme Toggle Script -->
+    <!-- Theme Toggle Script - Load first -->
     <script src="{{ url_for('static', filename='js/theme.js') }}"></script>
-    {% block extra_js %}{% endblock %}
+    
+    <!-- Three.js for 3D graphics - Only load when needed -->
+    {% block three_js %}{% endblock %}
+    
+    {% block extra_js %}{% endblock %}</body>
 </body>
 </html>

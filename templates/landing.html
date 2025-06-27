@@ -3,7 +3,14 @@
 {% block title %}Prajwal Thapa - Welcome{% endblock %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/landing.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/landing.css') }}">
+{% endblock %}
+
+{% block three_js %}
+    <!-- Three.js for 3D graphics -->
+    <script src="https://unpkg.com/three@0.140.0/build/three.min.js"></script>
+    <script src="https://unpkg.com/three@0.140.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://unpkg.com/three@0.140.0/examples/js/loaders/GLTFLoader.js"></script>
 {% endblock %}
 
 {% block content %}
@@ -79,10 +86,10 @@
                                 <i class="fas fa-undo"></i>
                             </button>
                         </div>
-                        
+
                         <!-- Guitar glow effect -->
                         <div class="guitar-glow"></div>
-                        
+
                         <!-- Sound waves animation -->
                         <div class="sound-waves" id="sound-waves">
                             <div class="wave wave-1"></div>

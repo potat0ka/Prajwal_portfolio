@@ -63,9 +63,11 @@ class ThemeManager {
      * Initialize all theme toggle buttons
      */
     initializeThemeButtons() {
-        this.themeButtons = document.querySelectorAll('.theme-toggle, #theme-toggle');
-        
-        this.themeButtons.forEach(button => {
+        // Wait a bit for DOM to be fully ready
+        setTimeout(() => {
+            this.themeButtons = document.querySelectorAll('.theme-toggle, #theme-toggle');
+            
+            this.themeButtons.forEach(button => {
             // Set initial icon
             this.updateButtonIcon(button, this.currentTheme);
             
@@ -89,8 +91,9 @@ class ThemeManager {
             button.setAttribute('role', 'button');
             button.setAttribute('tabindex', '0');
         });
-        
-        console.log(`Initialized ${this.themeButtons.length} theme buttons`);
+            
+            console.log(`Initialized ${this.themeButtons.length} theme buttons`);
+        }, 50);
     }
 
     /**
@@ -388,7 +391,8 @@ let themeManager;
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initializeThemeManager);
 } else {
-    initializeThemeManager();
+    // Small delay to ensure DOM is fully ready
+    setTimeout(initializeThemeManager, 10);
 }
 
 function initializeThemeManager() {

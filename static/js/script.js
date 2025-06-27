@@ -5,7 +5,15 @@
 
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
-    initializePortfolio();
+    // Ensure theme system is initialized first
+    if (!window.themeManager) {
+        // Wait a bit for theme manager to initialize
+        setTimeout(() => {
+            initializePortfolio();
+        }, 100);
+    } else {
+        initializePortfolio();
+    }
 });
 
 /**
