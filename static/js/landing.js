@@ -535,7 +535,30 @@ class LandingPage {
     }
 
     playMusic() {
-        if (this.audioElement) {
+        if (!this.audioElement) {
+            this.showAudioError();
+            return;
+        }
+
+        if (this.isPlaying) {
+            // Pause music
+            this.audioElement.pause();
+            this.isPlaying = false;
+            
+            const audioToggle = document.getElementById('audio-toggle');
+            if (audioToggle) {
+                const icon = audioToggle.querySelector('i');
+                if (icon) icon.className = 'fas fa-volume-mute';
+                audioToggle.classList.add('muted');
+            }
+            
+            // Stop sound waves
+            const soundWaves = document.getElementById('sound-waves');
+            if (soundWaves) {
+                soundWaves.classList.remove('active');
+            }
+        } else {
+            // Play music
             this.audioElement.play().catch(e => {
                 console.error('Audio play failed:', e);
                 this.showAudioError();
@@ -549,9 +572,11 @@ class LandingPage {
                 if (icon) icon.className = 'fas fa-volume-up';
                 audioToggle.classList.remove('muted');
             }
+            
+            this.startSoundWaves();
         }
+        
         this.updateAudioButton();
-        this.startSoundWaves();
     }
 
     updateAudioButton() {
@@ -559,14 +584,15 @@ class LandingPage {
         if (!playMusicBtn) return;
 
         const icon = playMusicBtn.querySelector('i');
-        const text = playMusicBtn.querySelector('span') || playMusicBtn.childNodes[1];
 
         if (this.isPlaying) {
             if (icon) icon.className = 'fas fa-pause';
-            if (text) text.textContent = ' Pause Music';
+            // Update button text by replacing innerHTML content
+            playMusicBtn.innerHTML = '<i class="fas fa-pause"></i> Pause Music';
         } else {
             if (icon) icon.className = 'fas fa-play';
-            if (text) text.textContent = ' Play Music';
+            // Update button text by replacing innerHTML content
+            playMusicBtn.innerHTML = '<i class="fas fa-play"></i> Play Music';
         }
     }
 
