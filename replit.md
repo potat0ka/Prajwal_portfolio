@@ -86,6 +86,11 @@ The application is configured for flexible deployment:
 ## Changelog
 
 - June 27, 2025. Initial setup
+- June 27, 2025. Updated guitar model and improved button alignment
+  - Replaced guitar 3D model with user's new acoustic_guitar_1751054814347.glb
+  - Added professional profile photo (prajwal_photo_1751055075554.png)
+  - Fixed hero section button alignment issues with improved CSS
+  - Enhanced responsive design for profile image display
 
 ## User Preferences
 

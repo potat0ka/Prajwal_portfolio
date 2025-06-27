@@ -61,6 +61,8 @@
     display: flex;
     gap: var(--spacing-md);
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
 }
 
 .hero-image {
@@ -72,6 +74,23 @@
 .profile-image-container {
     position: relative;
     display: inline-block;
+}
+
+.profile-image {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    border: 6px solid var(--background-card);
+    box-shadow: 0 8px 32px rgba(37, 99, 235, 0.3);
+    transition: var(--transition);
+    animation: profilePulse 3s ease-in-out infinite;
+}
+
+.profile-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 40px rgba(37, 99, 235, 0.4);
 }
 
 .profile-image-placeholder {

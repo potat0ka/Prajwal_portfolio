@@ -24,7 +24,8 @@
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }
     
-    .profile-image-placeholder {
+    .profile-image-placeholder,
+    .profile-image {
         width: 250px;
         height: 250px;
         font-size: var(--font-size-4xl);
@@ -148,7 +149,8 @@
     }
     
     /* Profile Image */
-    .profile-image-placeholder {
+    .profile-image-placeholder,
+    .profile-image {
         width: 200px;
         height: 200px;
         font-size: var(--font-size-3xl);
