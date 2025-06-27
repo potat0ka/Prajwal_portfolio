@@ -1,0 +1,300 @@
+{% extends "base.html" %}
+
+{% block title %}Contact - Personal Portfolio{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/contact.css') }}">
+{% endblock %}
+
+{% block content %}
+<!-- Contact Hero Section -->
+<section class="page-hero">
+    <div class="container">
+        <h1 class="page-title">Get In Touch</h1>
+        <p class="page-subtitle">
+            I'd love to hear from you. Send me a message and I'll respond as soon as possible.
+        </p>
+    </div>
+</section>
+
+<!-- Contact Content -->
+<section class="contact-content">
+    <div class="container">
+        <div class="contact-grid">
+            <!-- Contact Information -->
+            <div class="contact-info">
+                <h2 class="section-title">Let's Connect</h2>
+                <p class="contact-description">
+                    Whether you have a project in mind, want to collaborate, or just want to say hello, 
+                    I'm always open to discussing new opportunities and meeting new people.
+                </p>
+                
+                <!-- Contact Details -->
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Email</h3>
+                            <p>prajwalthapa780@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Phone</h3>
+                            <p>9826900732</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Location</h3>
+                            <p>Mhepi Janamarga-16, Kathmandu</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Social Links -->
+                <div class="contact-social">
+                    <h3>Follow Me</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Contact Form -->
+            <div class="contact-form-container">
+                <form class="contact-form" id="contactForm">
+                    <h2 class="form-title">Send Message</h2>
+                    
+                    <!-- Name Field -->
+                    <div class="form-group">
+                        <label for="name" class="form-label">Full Name</label>
+                        <input type="text" id="name" name="name" class="form-input" required>
+                        <div class="form-error" id="nameError"></div>
+                    </div>
+                    
+                    <!-- Email Field -->
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" id="email" name="email" class="form-input" required>
+                        <div class="form-error" id="emailError"></div>
+                    </div>
+                    
+                    <!-- Subject Field -->
+                    <div class="form-group">
+                        <label for="subject" class="form-label">Subject</label>
+                        <input type="text" id="subject" name="subject" class="form-input" required>
+                        <div class="form-error" id="subjectError"></div>
+                    </div>
+                    
+                    <!-- Message Field -->
+                    <div class="form-group">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea id="message" name="message" class="form-textarea" rows="5" required></textarea>
+                        <div class="form-error" id="messageError"></div>
+                    </div>
+                    
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn btn-primary form-submit">
+                        <span class="btn-text">Send Message</span>
+                        <span class="btn-loading" style="display: none;">
+                            <i class="fas fa-spinner fa-spin"></i> Sending...
+                        </span>
+                    </button>
+                    
+                    <!-- Form Success/Error Messages -->
+                    <div class="form-message" id="formMessage" style="display: none;"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="faq">
+    <div class="container">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>What services do you offer?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>I offer web development services including frontend and backend development, 
+                    UI/UX design, and consultation on technical projects. I specialize in modern 
+                    web technologies and responsive design.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>How long does a typical project take?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Project timelines vary depending on scope and complexity. A simple website 
+                    might take 2-4 weeks, while more complex applications could take 2-3 months. 
+                    I'll provide a detailed timeline after discussing your specific requirements.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Do you work with clients remotely?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes, I work with clients from around the world. I use modern communication 
+                    tools and project management systems to ensure smooth collaboration regardless 
+                    of location or time zone.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>What is your typical response time?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>I typically respond to emails and messages within 24 hours during business days. 
+                    For urgent matters, I try to respond as quickly as possible. During active projects, 
+                    communication is even more frequent.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+// Contact form handling
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById('contactForm');
+    const formMessage = document.getElementById('formMessage');
+    
+    // FAQ accordion functionality
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', function() {
+            const faqItem = this.parentElement;
+            const isActive = faqItem.classList.contains('active');
+            
+            // Close all FAQ items
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Open clicked item if it wasn't already active
+            if (!isActive) {
+                faqItem.classList.add('active');
+            }
+        });
+    });
+    
+    // Contact form submission
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Simple form validation
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const subject = document.getElementById('subject').value.trim();
+        const message = document.getElementById('message').value.trim();
+        
+        // Clear previous errors
+        document.querySelectorAll('.form-error').forEach(error => {
+            error.textContent = '';
+        });
+        
+        let hasErrors = false;
+        
+        // Validate fields
+        if (!name) {
+            document.getElementById('nameError').textContent = 'Name is required';
+            hasErrors = true;
+        }
+        
+        if (!email) {
+            document.getElementById('emailError').textContent = 'Email is required';
+            hasErrors = true;
+        } else if (!isValidEmail(email)) {
+            document.getElementById('emailError').textContent = 'Please enter a valid email';
+            hasErrors = true;
+        }
+        
+        if (!subject) {
+            document.getElementById('subjectError').textContent = 'Subject is required';
+            hasErrors = true;
+        }
+        
+        if (!message) {
+            document.getElementById('messageError').textContent = 'Message is required';
+            hasErrors = true;
+        }
+        
+        if (hasErrors) {
+            return;
+        }
+        
+        // Show loading state
+        const submitBtn = this.querySelector('.form-submit');
+        const btnText = submitBtn.querySelector('.btn-text');
+        const btnLoading = submitBtn.querySelector('.btn-loading');
+        
+        btnText.style.display = 'none';
+        btnLoading.style.display = 'inline';
+        submitBtn.disabled = true;
+        
+        // Simulate form submission (replace with actual submission logic)
+        setTimeout(() => {
+            // Reset button state
+            btnText.style.display = 'inline';
+            btnLoading.style.display = 'none';
+            submitBtn.disabled = false;
+            
+            // Show success message
+            formMessage.style.display = 'block';
+            formMessage.className = 'form-message success';
+            formMessage.textContent = 'Thank you! Your message has been sent successfully.';
+            
+            // Reset form
+            contactForm.reset();
+            
+            // Hide message after 5 seconds
+            setTimeout(() => {
+                formMessage.style.display = 'none';
+            }, 5000);
+        }, 2000);
+    });
+    
+    // Email validation helper
+    function isValidEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+});
+</script>
+{% endblock %}

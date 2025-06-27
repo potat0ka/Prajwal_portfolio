@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for SEO and responsive design -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal portfolio website showcasing projects, skills, and professional experience">
+    <meta name="keywords" content="portfolio, web developer, projects, skills, professional, contact">
+    <meta name="author" content="Your Name">
+    <meta name="robots" content="index, follow">
+
+    <!-- Page title -->
+    <title>{% block title %}Personal Portfolio{% endblock %}</title>
+
+    <!-- Open Graph tags for social media sharing -->
+    <meta property="og:title" content="Personal Portfolio">
+    <meta property="og:description" content="Professional portfolio showcasing projects and skills">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ request.url }}">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+
+    <!-- External CSS libraries -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS - Modular Architecture -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/variables.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/typography.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/components.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/navigation.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/forms.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/sections.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
+    <!-- Main stylesheet for page-specific styles -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Page-specific CSS -->
+    {% block extra_css %}{% endblock %}
+
+    <!-- Additional head content for specific pages -->
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    <!-- Navigation Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <!-- Logo/Brand -->
+                <a href="{{ url_for('index') }}" class="navbar-brand">
+                    <span class="brand-text">Prajwal Thapa</span>
+                </a>
+
+                <!-- Mobile menu toggle -->
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+
+                <!-- Navigation menu -->
+                <ul class="navbar-nav" id="navbarNav">
+                    <li class="nav-item">
+                        <a href="{{ url_for('portfolio') }}" class="nav-link {% if request.endpoint == 'portfolio' %}active{% endif %}">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ url_for('about') }}" class="nav-link {% if request.endpoint == 'about' %}active{% endif %}">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ url_for('certificates') }}" class="nav-link {% if request.endpoint == 'certificates' %}active{% endif %}">Certificates</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ url_for('experience') }}" class="nav-link {% if request.endpoint == 'experience' %}active{% endif %}">Experience</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ url_for('contact') }}" class="nav-link {% if request.endpoint == 'contact' %}active{% endif %}">Contact</a>
+                    </li>
+                    <li class="nav-item cv-download">
+                        <a href="{{ url_for('static', filename='assets/Prajwal_Thapa_CV.pdf') }}" class="nav-link cv-link" download="Prajwal_Thapa_CV.pdf" target="_blank">
+                            <i class="fas fa-download"></i> CV
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main content area -->
+    <main class="main-content">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Footer brand -->
+                <div class="footer-section">
+                    <h3 class="footer-brand">Portfolio</h3>
+                    <p class="footer-description">
+                        Building digital experiences with passion and precision.
+                    </p>
+                </div>
+
+                <!-- Quick links -->
+                <div class="footer-section">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="{{ url_for('index') }}" class="footer-link">Home</a></li>
+                        <li><a href="{{ url_for('about') }}" class="footer-link">About</a></li>
+                        <li><a href="{{ url_for('projects') }}" class="footer-link">Projects</a></li>
+                        <li><a href="{{ url_for('contact') }}" class="footer-link">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Social links -->
+                <div class="footer-section">
+                    <h4 class="footer-title">Connect</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="footer-bottom">
+                <p class="copyright">
+                    &copy; {{ moment().format('YYYY') if moment else '2025' }} Your Name. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to top button -->
+    <button class="scroll-top" id="scrollTopBtn" aria-label="Scroll to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+    <!-- Additional scripts for specific pages -->
+    {% block extra_scripts %}{% endblock %}
+</body>
+</html>

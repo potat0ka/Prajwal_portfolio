@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+
+{% block title %}Portfolio - Prajwal Thapa{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    Hello, I'm <span class="highlight">Prajwal Thapa</span>
+                </h1>
+                <p class="hero-subtitle">
+                    BASW Student passionate about social work and creative expression
+                </p>
+                <p class="hero-description">
+                    Currently in my third year studying Bachelor of Arts in Social Work at Saraswati Multiple Campus. 
+                    I combine my passion for community development with creative interests in music and visual design.
+                </p>
+                
+                <!-- Call to action buttons -->
+                <div class="hero-buttons">
+                    <a href="{{ url_for('about') }}" class="btn btn-primary">
+                        Learn About Me
+                    </a>
+                    <a href="{{ url_for('contact') }}" class="btn btn-secondary">
+                        Get In Touch
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Hero image -->
+            <div class="hero-image">
+                <img src="{{ url_for('static', filename='assets/prajwal_photo.png') }}" alt="Prajwal Thapa - BASW Student" class="profile-image">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features/Skills Preview Section -->
+<section class="features">
+    <div class="container">
+        <h2 class="section-title">What I Focus On</h2>
+        <div class="features-grid">
+            <!-- Feature 1 -->
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <h3 class="feature-title">Social Work</h3>
+                <p class="feature-description">
+                    Passionate about community development and creating positive social impact through dedicated service and advocacy.
+                </p>
+            </div>
+            
+            <!-- Feature 2 -->
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-guitar"></i>
+                </div>
+                <h3 class="feature-title">Music & Creativity</h3>
+                <p class="feature-description">
+                    Exploring artistic expression through music and visual design to inspire and connect with others.
+                </p>
+            </div>
+            
+            <!-- Feature 3 -->
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-laptop"></i>
+                </div>
+                <h3 class="feature-title">Digital Literacy</h3>
+                <p class="feature-description">
+                    Learning technology skills to enhance social work practice and create data-driven solutions for communities.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Quick Stats Section -->
+<section class="stats">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">3rd</div>
+                <div class="stat-label">Year BASW Student</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">2</div>
+                <div class="stat-label">Professional Certificates</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">5+</div>
+                <div class="stat-label">Years Teaching Experience</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Passion for Community</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta">
+    <div class="container">
+        <div class="cta-content">
+            <h2 class="cta-title">Ready to Learn More?</h2>
+            <p class="cta-description">
+                Explore my journey, certifications, and experience in social work and community development.
+            </p>
+            <div class="cta-buttons">
+                <a href="{{ url_for('certificates') }}" class="btn btn-primary">View Certificates</a>
+                <a href="{{ url_for('experience') }}" class="btn btn-secondary">See Experience</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

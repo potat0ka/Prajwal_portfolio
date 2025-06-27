@@ -1,0 +1,223 @@
+{% extends "base.html" %}
+
+{% block title %}Experience - Prajwal Thapa{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/experience.css') }}">
+{% endblock %}
+
+{% block content %}
+<!-- Experience Hero Section -->
+<section class="experience-hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1 class="page-title">My Experience</h1>
+            <p class="page-subtitle">Educational journey and professional development</p>
+        </div>
+    </div>
+</section>
+
+<!-- Timeline Section -->
+<section class="timeline-section">
+    <div class="container">
+        <div class="timeline">
+            <!-- Current Education -->
+            <div class="timeline-item current" data-aos="fade-up">
+                <div class="timeline-marker">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="timeline-content">
+                    <div class="timeline-header">
+                        <h3 class="timeline-title">Bachelor of Arts in Social Work (BASW)</h3>
+                        <span class="timeline-status current-status">Currently Pursuing - 3rd Year</span>
+                    </div>
+                    <div class="timeline-meta">
+                        <div class="timeline-organization">
+                            <i class="fas fa-university"></i>
+                            <span>Saraswati Multiple Campus, Tribhuvan University</span>
+                        </div>
+                        <div class="timeline-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>2023 AD - Present</span>
+                        </div>
+                        <div class="timeline-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Thamel, Kathmandu</span>
+                        </div>
+                    </div>
+                    <div class="timeline-description">
+                        <p>Currently in my third year of Bachelor of Arts in Social Work program, focusing on community development, social research methods, and practical intervention strategies. Maintaining strong academic performance while developing expertise in social work theory and practice.</p>
+                        <div class="timeline-highlights">
+                            <h4>Key Focus Areas:</h4>
+                            <ul>
+                                <li>Community Development and Social Intervention</li>
+                                <li>Research Methods and Data Analysis</li>
+                                <li>Psychology and Human Behavior</li>
+                                <li>Social Policy and Advocacy</li>
+                                <li>Case Management and Counseling Techniques</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Teaching Experience -->
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+                <div class="timeline-marker">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                </div>
+                <div class="timeline-content">
+                    <div class="timeline-header">
+                        <h3 class="timeline-title">Grade School English Tutor</h3>
+                        <span class="timeline-status">Professional Experience</span>
+                    </div>
+                    <div class="timeline-meta">
+                        <div class="timeline-organization">
+                            <i class="fas fa-school"></i>
+                            <span>Private Tutoring</span>
+                        </div>
+                        <div class="timeline-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>February 2020</span>
+                        </div>
+                        <div class="timeline-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Galyang, Syangja</span>
+                        </div>
+                    </div>
+                    <div class="timeline-description">
+                        <p>Provided English language tutoring to grade school students, developing personalized learning approaches and helping students improve their communication skills and academic performance.</p>
+                        <div class="timeline-highlights">
+                            <h4>Key Responsibilities:</h4>
+                            <ul>
+                                <li>Developed age-appropriate English lesson plans</li>
+                                <li>Assessed student progress and adapted teaching methods</li>
+                                <li>Built positive relationships with students and parents</li>
+                                <li>Improved students' reading, writing, and speaking skills</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- High School Education -->
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+                <div class="timeline-marker">
+                    <i class="fas fa-school"></i>
+                </div>
+                <div class="timeline-content">
+                    <div class="timeline-header">
+                        <h3 class="timeline-title">School Leaving Certificate (SLC)</h3>
+                        <span class="timeline-status">Completed</span>
+                    </div>
+                    <div class="timeline-meta">
+                        <div class="timeline-organization">
+                            <i class="fas fa-building"></i>
+                            <span>Chirage Higher Secondary Boarding School</span>
+                        </div>
+                        <div class="timeline-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>2020 - 2022 AD</span>
+                        </div>
+                        <div class="timeline-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Galyang-3, Syangja</span>
+                        </div>
+                    </div>
+                    <div class="timeline-description">
+                        <p>Successfully completed higher secondary education with focus on building strong foundational knowledge and developing critical thinking skills that prepared me for university-level studies.</p>
+                        <div class="timeline-highlights">
+                            <h4>Academic Achievements:</h4>
+                            <ul>
+                                <li>Strong performance in English and Social Studies</li>
+                                <li>Developed leadership and communication skills</li>
+                                <li>Participated in school community service activities</li>
+                                <li>Built foundation for social work career path</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Skills Development Section -->
+<section class="professional-development">
+    <div class="container">
+        <h2 class="section-title">Professional Development</h2>
+        <div class="development-areas">
+            <div class="development-area">
+                <div class="area-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>Social Work Practice</h3>
+                <div class="skills-list">
+                    <span class="skill-tag">Community Engagement</span>
+                    <span class="skill-tag">Case Management</span>
+                    <span class="skill-tag">Social Research</span>
+                    <span class="skill-tag">Advocacy</span>
+                </div>
+            </div>
+            
+            <div class="development-area">
+                <div class="area-icon">
+                    <i class="fas fa-laptop"></i>
+                </div>
+                <h3>Technical Skills</h3>
+                <div class="skills-list">
+                    <span class="skill-tag">Microsoft Office</span>
+                    <span class="skill-tag">Excel Data Analysis</span>
+                    <span class="skill-tag">Digital Literacy</span>
+                    <span class="skill-tag">Basic Data Handling</span>
+                </div>
+            </div>
+            
+            <div class="development-area">
+                <div class="area-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3>Psychology & Counseling</h3>
+                <div class="skills-list">
+                    <span class="skill-tag">Human Behavior</span>
+                    <span class="skill-tag">Counseling Techniques</span>
+                    <span class="skill-tag">Mental Health Awareness</span>
+                    <span class="skill-tag">Communication</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Goals and Future Plans -->
+<section class="future-plans">
+    <div class="container">
+        <h2 class="section-title">Career Goals & Future Plans</h2>
+        <div class="goals-container">
+            <div class="goal-card">
+                <div class="goal-icon">
+                    <i class="fas fa-handshake"></i>
+                </div>
+                <h3>Community Development Professional</h3>
+                <p>Aspiring to work with NGOs and community organizations to create sustainable social impact and address real-world challenges in underserved communities.</p>
+            </div>
+            
+            <div class="goal-card">
+                <div class="goal-icon">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <h3>Technology Integration in Social Work</h3>
+                <p>Combining IT skills with social work expertise to develop data-driven solutions for community problems and enhance service delivery efficiency.</p>
+            </div>
+            
+            <div class="goal-card">
+                <div class="goal-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3>Continued Education</h3>
+                <p>Planning to pursue advanced certifications and potentially a Master's degree to deepen expertise in social work practice and research methods.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

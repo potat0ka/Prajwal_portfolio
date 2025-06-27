@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prajwal Thapa - Developer & Music Lover</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Welcome to Prajwal Thapa's portfolio - where development meets music passion">
+    <meta name="keywords" content="Prajwal Thapa, developer, music, guitar, portfolio, arts student">
+    <meta name="author" content="Prajwal Thapa">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Prajwal Thapa - Developer & Music Lover">
+    <meta property="og:description" content="Experience the intersection of code and music">
+    <meta property="og:type" content="website">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Three.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/landing.css') }}">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <p class="loading-text">Loading the music experience...</p>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div id="main-container" class="main-container">
+        <!-- Background Elements -->
+        <div class="background-gradient"></div>
+        <div class="floating-particles"></div>
+        
+        <!-- Header Section -->
+        <header class="header">
+            <nav class="nav">
+                <div class="nav-brand">
+                    <span class="brand-text">PT</span>
+                </div>
+                <div class="nav-controls">
+                    <!-- Audio Control -->
+                    <button id="audio-toggle" class="audio-toggle" title="Toggle Music">
+                        <i class="fas fa-volume-up"></i>
+                    </button>
+                    <!-- Theme Toggle -->
+                    <button id="theme-toggle" class="theme-toggle" title="Toggle Theme">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <div class="hero-content">
+                    <!-- Text Content -->
+                    <div class="hero-text">
+                        <h1 class="hero-title">
+                            <span class="greeting">Hi, I'm</span>
+                            <span class="name">Prajwal Thapa</span>
+                            <span class="tagline">BASW Student & Creative Soul</span>
+                        </h1>
+                        <p class="hero-description">
+                            Combining social work passion with creative expression, 
+                            where community development meets artistic vision and every melody inspires change.
+                        </p>
+                        
+                        <!-- Call-to-Action -->
+                        <div class="hero-actions">
+                            <button id="enter-portfolio" class="btn-primary">
+                                <span>Enter Portfolio</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                            <button id="play-music" class="btn-secondary">
+                                <i class="fas fa-play"></i>
+                                <span>Play Music</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 3D Guitar Container -->
+                    <div class="guitar-container">
+                        <div id="guitar-scene" class="guitar-scene"></div>
+                        
+                        <!-- Guitar Controls -->
+                        <div class="guitar-controls">
+                            <button id="guitar-rotate" class="control-btn" title="Auto Rotate">
+                                <i class="fas fa-sync-alt"></i>
+                            </button>
+                            <button id="guitar-reset" class="control-btn" title="Reset View">
+                                <i class="fas fa-home"></i>
+                            </button>
+                        </div>
+                        
+                        <!-- Visual Effects -->
+                        <div class="guitar-glow"></div>
+                        <div class="sound-waves">
+                            <div class="wave wave-1"></div>
+                            <div class="wave wave-2"></div>
+                            <div class="wave wave-3"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Info Section -->
+            <section class="quick-info">
+                <div class="info-cards">
+                    <div class="info-card">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h3>BASW Student</h3>
+                        <p>Saraswati Multiple Campus</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-guitar"></i>
+                        <h3>Music Enthusiast</h3>
+                        <p>Guitar & Composition</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-heart"></i>
+                        <h3>Community Focus</h3>
+                        <p>Social Work & Arts</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p>&copy; 2025 Prajwal Thapa. Crafted with passion and music.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="#" class="social-link" title="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="#" class="social-link" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Audio Element -->
+    <audio id="background-audio" preload="auto" loop>
+        <source src="{{ url_for('static', filename='assets/acoustic-guitar-melody-2-358291_1750913948630.mp3') }}" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Custom JavaScript -->
+    <script src="{{ url_for('static', filename='js/landing.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,344 @@
+/* ===========================
+   Portfolio Main Stylesheet
+   Modular CSS architecture for maintainability
+   =========================== */
+```
+
+```css
+/* Import all modular CSS files in the correct order */
+@import url('variables.css');
+@import url('base.css');
+@import url('typography.css');
+@import url('layout.css');
+@import url('components.css');
+@import url('navigation.css');
+@import url('forms.css');
+@import url('sections.css');
+@import url('responsive.css');
+```
+
+```css
+/* ===========================
+   Page-Specific Overrides
+   Add any portfolio-specific styles here
+   =========================== */
+```
+
+```css
+/* Timeline Component (Unique to Portfolio) */
+.timeline {
+    background-color: var(--background-primary);
+}
+```
+
+```css
+.timeline-container {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+```
+
+```css
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    left: 30px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: var(--border-color);
+}
+```
+
+```css
+.timeline-item {
+    position: relative;
+    margin-bottom: var(--spacing-2xl);
+    padding-left: var(--spacing-3xl);
+}
+```
+
+```css
+.timeline-marker {
+    position: absolute;
+    left: 22px;
+    top: 0;
+    width: 16px;
+    height: 16px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    border: 3px solid var(--background-primary);
+}
+```
+
+```css
+.timeline-content {
+    background-color: var(--background-secondary);
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 4px 6px var(--shadow-light);
+}
+```
+
+```css
+.timeline-title {
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-primary);
+}
+```
+
+```css
+.timeline-date {
+    color: var(--primary-color);
+    font-weight: 500;
+    font-size: var(--font-size-sm);
+}
+```
+
+```css
+.timeline-description {
+    margin-top: var(--spacing-md);
+    margin-bottom: 0;
+}
+```
+
+```css
+/* FAQ Component (Unique to Portfolio) */
+.faq {
+    background-color: var(--background-secondary);
+}
+```
+
+```css
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+```
+
+```css
+.faq-item {
+    background-color: var(--background-primary);
+    border-radius: var(--border-radius-lg);
+    margin-bottom: var(--spacing-md);
+    overflow: hidden;
+    box-shadow: 0 2px 4px var(--shadow-light);
+}
+```
+
+```css
+.faq-question {
+    width: 100%;
+    padding: var(--spacing-xl);
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: var(--font-size-lg);
+    font-weight: 500;
+    color: var(--text-primary);
+    transition: var(--transition);
+}
+```
+
+```css
+.faq-question:hover {
+    background-color: var(--background-secondary);
+}
+```
+
+```css
+.faq-question i {
+    transition: var(--transition);
+}
+```
+
+```css
+.faq-item.active .faq-question i {
+    transform: rotate(180deg);
+}
+```
+
+```css
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+```
+
+```css
+.faq-item.active .faq-answer {
+    max-height: 200px;
+}
+```
+
+```css
+.faq-answer p {
+    padding: 0 var(--spacing-xl) var(--spacing-xl);
+    margin: 0;
+}
+```
+
+```css
+/* CTA Section */
+.cta {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: white;
+    text-align: center;
+}
+```
+
+```css
+.cta-title {
+    color: white;
+    margin-bottom: var(--spacing-md);
+}
+```
+
+```css
+.cta-description {
+    font-size: var(--font-size-lg);
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: var(--spacing-xl);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+```
+
+```css
+.cta .btn-primary {
+    background-color: white;
+    color: var(--primary-color);
+}
+```
+
+```css
+.cta .btn-primary:hover {
+    background-color: var(--background-secondary);
+    color: var(--primary-dark);
+}
+```
+
+```css
+/* Footer */
+.footer {
+    background-color: var(--text-primary);
+    color: white;
+    padding: var(--spacing-3xl) 0 var(--spacing-xl);
+}
+```
+
+```css
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-2xl);
+    margin-bottom: var(--spacing-2xl);
+}
+```
+
+```css
+.footer-brand {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: var(--spacing-md);
+}
+```
+
+```css
+.footer-description {
+    color: #9ca3af;
+    margin: 0;
+}
+```
+
+```css
+.footer-title {
+    margin-bottom: var(--spacing-lg);
+    color: white;
+}
+```
+
+```css
+.footer-links {
+    list-style: none;
+}
+```
+
+```css
+.footer-links li {
+    margin-bottom: var(--spacing-sm);
+}
+```
+
+```css
+.footer-link {
+    color: #9ca3af;
+    transition: var(--transition);
+}
+```
+
+```css
+.footer-link:hover {
+    color: white;
+}
+```
+
+```css
+.footer-bottom {
+    padding-top: var(--spacing-xl);
+    border-top: 1px solid #374151;
+    text-align: center;
+}
+```
+
+```css
+.copyright {
+    color: #9ca3af;
+    margin: 0;
+}
+```
+
+```css
+/* Scroll to Top Button */
+.scroll-top {
+    position: fixed;
+    bottom: var(--spacing-xl);
+    right: var(--spacing-xl);
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+    z-index: var(--z-header);
+}
+```
+
+```css
+.scroll-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+```
+
+```css
+.scroll-top:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+}

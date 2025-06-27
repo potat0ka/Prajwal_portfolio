@@ -1,0 +1,119 @@
+
+/* ===========================
+   Responsive Design
+   Mobile-first approach with progressive enhancement
+   =========================== */
+
+/* Tablet Styles */
+@media (max-width: 1024px) {
+    .hero-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-2xl);
+        text-align: center;
+    }
+    
+    .about-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    /* Typography */
+    .hero-title {
+        font-size: var(--font-size-4xl);
+    }
+    
+    .section-title {
+        font-size: var(--font-size-2xl);
+    }
+    
+    /* Layout */
+    .features-grid,
+    .projects-container,
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero-buttons {
+        justify-content: center;
+    }
+    
+    .hero-buttons .btn {
+        flex: 1;
+        min-width: 150px;
+    }
+    
+    .filter-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .filter-btn {
+        width: 200px;
+    }
+    
+    /* Spacing */
+    section {
+        padding: var(--spacing-2xl) 0;
+    }
+    
+    .hero {
+        padding: var(--spacing-2xl) 0;
+        min-height: auto;
+    }
+    
+    /* Container */
+    .container {
+        padding: 0 var(--spacing-lg);
+    }
+}
+
+/* Small Mobile Styles */
+@media (max-width: 480px) {
+    /* Typography */
+    .hero-title {
+        font-size: var(--font-size-3xl);
+    }
+    
+    .section-title {
+        font-size: var(--font-size-xl);
+    }
+    
+    /* Profile Image */
+    .profile-image {
+        width: 220px;
+        height: 220px;
+    }
+    
+    /* Container */
+    .container {
+        padding: 0 var(--spacing-md);
+    }
+    
+    /* Buttons */
+    .hero-buttons .btn {
+        width: 100%;
+    }
+    
+    /* Grid Adjustments */
+    .grid-cols-2 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Large Screen Optimizations */
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1400px;
+    }
+    
+    .hero-title {
+        font-size: var(--font-size-5xl);
+    }
+}
