@@ -313,7 +313,7 @@ class LandingPage {
             const loader = new THREE.GLTFLoader();
 
             loader.load(
-                '/static/assets/acoustic_guitar_1750913922231.glb',
+                '/attached_assets/acoustic_guitar_1751054814347.glb',
                 (gltf) => {
                     try {
                         // Remove placeholder
