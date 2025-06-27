@@ -1,0 +1,392 @@
+{% extends "base.html" %}
+
+{% block title %}Prajwal Thapa - Portfolio{% endblock %}
+
+{% block content %}
+<!-- Header -->
+<header class="header">
+    <nav class="navbar">
+        <div class="container">
+            <a href="{{ url_for('landing') }}" class="navbar-brand">
+                <span class="brand-text">Prajwal Thapa</span>
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <ul class="navbar-nav" id="navbarNav">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link active">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#skills" class="nav-link">Skills</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#education" class="nav-link">Education</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <button class="theme-toggle nav-link" id="theme-toggle" title="Toggle Theme">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </li>
+            </ul>
+            
+            <!-- Mobile Toggle -->
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+    </nav>
+</header>
+
+<!-- Main Content -->
+<main class="main-content">
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        Hello, I'm <span class="highlight">Prajwal Thapa</span>
+                    </h1>
+                    <p class="hero-subtitle">Social Work Student & Aspiring IT Professional</p>
+                    <p class="hero-description">
+                        I'm currently in my third year studying Bachelor of Arts in Social Work at Saraswati Multiple Campus. 
+                        Alongside my passion for social work, I've recently developed a strong interest in Information Technology. 
+                        I believe that combining IT skills with my social work background can help me better understand and 
+                        address real-world challenges in my community.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="{{ url_for('download_cv') }}" class="btn btn-primary">
+                            <i class="fas fa-download"></i>
+                            Download CV
+                        </a>
+                        <a href="#contact" class="btn btn-secondary">
+                            <i class="fas fa-envelope"></i>
+                            Get In Touch
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="profile-image-container">
+                        <div class="profile-image-placeholder">
+                            <i class="fas fa-user"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-content">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p class="about-paragraph">
+                        I'm excited to learn more about technology, especially how it can be used to analyze data and 
+                        create meaningful change. My goal is to grow both personally and professionally by applying 
+                        what I learn to make a positive impact in my community.
+                    </p>
+                    <p class="about-paragraph">
+                        Through my social work studies, I've developed strong communication skills, empathy, and a 
+                        deep understanding of community needs. Now, I'm eager to complement these skills with 
+                        technical knowledge to create innovative solutions for social challenges.
+                    </p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <h3>3rd Year</h3>
+                        <p>Social Work Student</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>2020+</h3>
+                        <p>Years of Learning</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>Passionate</h3>
+                        <p>About Technology</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Skills & Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <div class="category-title">
+                        <i class="fas fa-laptop-code"></i>
+                        <h3>Technical Skills</h3>
+                    </div>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <span class="skill-name">Microsoft Excel & Office Suite</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Basic Data Handling</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="70"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Digital Literacy</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="80"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="category-title">
+                        <i class="fas fa-users"></i>
+                        <h3>Social Work Skills</h3>
+                    </div>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <span class="skill-name">Community Engagement</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Counseling & Support</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Research & Analysis</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="75"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="category-title">
+                        <i class="fas fa-comments"></i>
+                        <h3>Communication</h3>
+                    </div>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <span class="skill-name">English (Grade School Tutor)</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="95"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Nepali (Native)</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="100"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Public Speaking</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="80"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Certificates Section -->
+    <section id="education" class="timeline">
+        <div class="container">
+            <h2 class="section-title">Education & Certificates</h2>
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Bachelor of Arts in Social Work (BASW)</h3>
+                        <p class="timeline-date">2023 - Present (3rd Year)</p>
+                        <p class="timeline-description">
+                            Currently pursuing my degree at Saraswati Multiple Campus, Thamel, Kathmandu. 
+                            Focusing on community development, social research, and intervention strategies.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Psychology Certificate</h3>
+                        <p class="timeline-date">October 2023</p>
+                        <p class="timeline-description">
+                            Completed psychology certification from ManoShastra Counseling & Research Center Pvt. Ltd., 
+                            enhancing my understanding of human behavior and mental health.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">School Leaving Certificate (SLC)</h3>
+                        <p class="timeline-date">2020 - 2022</p>
+                        <p class="timeline-description">
+                            Completed secondary education at Chirage Higher Secondary Boarding School, 
+                            Galyang-3, Syangja, with focus on academic excellence.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Grade School Tutor Certificate</h3>
+                        <p class="timeline-date">February 2020</p>
+                        <p class="timeline-description">
+                            Earned certification as a Grade School English Tutor in Galyang, Syangja, 
+                            demonstrating teaching and communication skills.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle">
+                I'm always excited to connect with like-minded individuals and explore opportunities 
+                where I can contribute to meaningful projects.
+            </p>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p>prajwalthapa780@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Phone</h4>
+                            <p>+977 9826900732</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Location</h4>
+                            <p>Mhepi Janamargha-16, Kathmandu</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form action="#" method="POST" class="contact-form-element">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" id="name" name="name" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" id="email" name="email" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea id="message" name="message" class="form-textarea" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2 class="cta-title">Ready to Make a Difference Together?</h2>
+            <p class="cta-description">
+                Let's connect and explore how we can combine social impact with technology 
+                to create meaningful change in our communities.
+            </p>
+            <a href="{{ url_for('download_cv') }}" class="btn btn-primary">
+                <i class="fas fa-download"></i>
+                Download My CV
+            </a>
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 class="footer-brand">Prajwal Thapa</h3>
+                <p class="footer-description">
+                    Social Work Student & Aspiring IT Professional dedicated to combining 
+                    technology with social impact for community development.
+                </p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#home" class="footer-link">Home</a></li>
+                    <li><a href="#about" class="footer-link">About</a></li>
+                    <li><a href="#skills" class="footer-link">Skills</a></li>
+                    <li><a href="#education" class="footer-link">Education</a></li>
+                    <li><a href="#contact" class="footer-link">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Contact Info</h4>
+                <ul class="footer-links">
+                    <li><span class="footer-link">prajwalthapa780@gmail.com</span></li>
+                    <li><span class="footer-link">+977 9826900732</span></li>
+                    <li><span class="footer-link">Kathmandu, Nepal</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="copyright">
+                &copy; {{ moment().format('YYYY') if moment else '2024' }} Prajwal Thapa. All rights reserved.
+            </p>
+        </div>
+    </div>
+</footer>
+
+<!-- Scroll to Top Button -->
+<button class="scroll-top" id="scrollTopBtn" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+</button>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+<script src="{{ url_for('static', filename='js/about.js') }}"></script>
+{% endblock %}

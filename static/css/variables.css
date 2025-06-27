@@ -1,0 +1,190 @@
+/* ===========================
+   CSS Custom Properties (Variables)
+   Enhanced with comprehensive dark/light theme support
+   =========================== */
+
+:root {
+    /* Light Theme Colors */
+    --primary-color: #2563eb;
+    --primary-dark: #1d4ed8;
+    --primary-light: #3b82f6;
+    --secondary-color: #64748b;
+    --accent-color: #f59e0b;
+    --accent-light: #fbbf24;
+    
+    /* Text Colors - Light Theme */
+    --text-primary: #1f2937;
+    --text-secondary: #6b7280;
+    --text-light: #9ca3af;
+    --text-inverse: #ffffff;
+    
+    /* Background Colors - Light Theme */
+    --background-primary: #ffffff;
+    --background-secondary: #f8fafc;
+    --background-accent: #f1f5f9;
+    --background-card: #ffffff;
+    --background-overlay: rgba(255, 255, 255, 0.95);
+    
+    /* Border and Surface Colors */
+    --border-color: #e5e7eb;
+    --border-light: #f3f4f6;
+    --surface-color: rgba(255, 255, 255, 0.1);
+    --surface-hover: rgba(0, 0, 0, 0.05);
+    
+    /* Shadow Colors */
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    --shadow-medium: rgba(0, 0, 0, 0.15);
+    --shadow-dark: rgba(0, 0, 0, 0.25);
+    --glow-color: #6366f1;
+    
+    /* Success, Warning, Error Colors */
+    --success-color: #10b981;
+    --success-bg: #dcfce7;
+    --warning-color: #f59e0b;
+    --warning-bg: #fef3c7;
+    --error-color: #ef4444;
+    --error-bg: #fef2f2;
+    
+    /* Typography */
+    --font-family-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-family-secondary: 'Poppins', sans-serif;
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 1.875rem;
+    --font-size-4xl: 2.25rem;
+    --font-size-5xl: 3rem;
+    
+    /* Spacing Scale */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-2xl: 3rem;
+    --spacing-3xl: 4rem;
+    
+    /* Layout */
+    --container-max-width: 1200px;
+    --border-radius: 0.5rem;
+    --border-radius-lg: 0.75rem;
+    --border-radius-xl: 1rem;
+    
+    /* Transitions */
+    --transition-fast: 0.15s ease;
+    --transition: 0.3s ease;
+    --transition-slow: 0.5s ease;
+    --transition-bounce: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    
+    /* Z-index Scale */
+    --z-background: -1;
+    --z-content: 1;
+    --z-guitar: 10;
+    --z-controls: 20;
+    --z-header: 30;
+    --z-modal: 100;
+    --z-loading: 200;
+}
+
+/* Dark Theme Variables */
+[data-theme="dark"] {
+    /* Primary colors remain the same for brand consistency */
+    --primary-color: #3b82f6;
+    --primary-dark: #2563eb;
+    --primary-light: #60a5fa;
+    --accent-color: #fbbf24;
+    --accent-light: #fcd34d;
+    
+    /* Text Colors - Dark Theme */
+    --text-primary: #f9fafb;
+    --text-secondary: #d1d5db;
+    --text-light: #9ca3af;
+    --text-inverse: #1f2937;
+    
+    /* Background Colors - Dark Theme */
+    --background-primary: #111827;
+    --background-secondary: #1f2937;
+    --background-accent: #374151;
+    --background-card: #1f2937;
+    --background-overlay: rgba(17, 24, 39, 0.95);
+    
+    /* Border and Surface Colors - Dark Theme */
+    --border-color: #374151;
+    --border-light: #4b5563;
+    --surface-color: rgba(0, 0, 0, 0.3);
+    --surface-hover: rgba(255, 255, 255, 0.05);
+    
+    /* Shadow Colors - Dark Theme */
+    --shadow-light: rgba(0, 0, 0, 0.3);
+    --shadow-medium: rgba(0, 0, 0, 0.4);
+    --shadow-dark: rgba(0, 0, 0, 0.6);
+    --glow-color: #60a5fa;
+    
+    /* Success, Warning, Error Colors - Dark Theme */
+    --success-color: #34d399;
+    --success-bg: #064e3b;
+    --warning-color: #fbbf24;
+    --warning-bg: #78350f;
+    --error-color: #f87171;
+    --error-bg: #7f1d1d;
+}
+
+/* System Theme Preference Support */
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme]) {
+        --primary-color: #3b82f6;
+        --primary-dark: #2563eb;
+        --primary-light: #60a5fa;
+        --accent-color: #fbbf24;
+        --accent-light: #fcd34d;
+        
+        --text-primary: #f9fafb;
+        --text-secondary: #d1d5db;
+        --text-light: #9ca3af;
+        --text-inverse: #1f2937;
+        
+        --background-primary: #111827;
+        --background-secondary: #1f2937;
+        --background-accent: #374151;
+        --background-card: #1f2937;
+        --background-overlay: rgba(17, 24, 39, 0.95);
+        
+        --border-color: #374151;
+        --border-light: #4b5563;
+        --surface-color: rgba(0, 0, 0, 0.3);
+        --surface-hover: rgba(255, 255, 255, 0.05);
+        
+        --shadow-light: rgba(0, 0, 0, 0.3);
+        --shadow-medium: rgba(0, 0, 0, 0.4);
+        --shadow-dark: rgba(0, 0, 0, 0.6);
+        --glow-color: #60a5fa;
+        
+        --success-color: #34d399;
+        --success-bg: #064e3b;
+        --warning-color: #fbbf24;
+        --warning-bg: #78350f;
+        --error-color: #f87171;
+        --error-bg: #7f1d1d;
+    }
+}
+
+/* Theme Transition Animation */
+* {
+    transition: 
+        background-color var(--transition),
+        border-color var(--transition),
+        color var(--transition),
+        box-shadow var(--transition);
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Prajwal Thapa - Portfolio{% endblock %}</title>
+    
+    <!-- Meta Tags -->
+    <meta name="description" content="{% block description %}Prajwal Thapa - Social Work Student & Aspiring Tech Professional. Combining social work expertise with emerging IT skills.{% endblock %}">
+    <meta name="keywords" content="Prajwal Thapa, Social Work, IT, Portfolio, Student, Technology">
+    <meta name="author" content="Prajwal Thapa">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="{% block og_title %}Prajwal Thapa - Portfolio{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}Social Work Student & Aspiring Tech Professional{% endblock %}">
+    <meta property="og:type" content="website">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Three.js for 3D graphics -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body data-theme="light">
+    {% block content %}
+    <!-- Default error page -->
+    <div class="container">
+        <div class="error-page">
+            <h1>{{ title or "Error" }}</h1>
+            <p>{{ error_message or "An unexpected error occurred." }}</p>
+            <a href="{{ url_for('landing') }}" class="btn btn-primary">
+                <i class="fas fa-home"></i>
+                Go Home
+            </a>
+        </div>
+    </div>
+    {% endblock %}
+    
+    <!-- Theme Toggle Script -->
+    <script src="{{ url_for('static', filename='js/theme.js') }}"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

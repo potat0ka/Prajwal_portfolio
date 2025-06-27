@@ -1,0 +1,313 @@
+/* ===========================
+   Portfolio Main Stylesheet
+   Comprehensive theme-aware CSS architecture
+   =========================== */
+
+/* Import all modular CSS files in the correct order */
+@import url('variables.css');
+@import url('base.css');
+@import url('typography.css');
+@import url('layout.css');
+@import url('components.css');
+@import url('navigation.css');
+@import url('forms.css');
+@import url('sections.css');
+@import url('responsive.css');
+
+/* ===========================
+   Portfolio-Specific Enhancements
+   =========================== */
+
+/* Enhanced Theme Transitions */
+* {
+    transition: 
+        background-color var(--transition),
+        border-color var(--transition),
+        color var(--transition),
+        box-shadow var(--transition),
+        transform var(--transition-fast);
+}
+
+/* Theme Toggle Animation Enhancement */
+.theme-toggle {
+    position: relative;
+    overflow: hidden;
+}
+
+.theme-toggle::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.theme-toggle:hover::before {
+    left: 100%;
+}
+
+.theme-toggle i {
+    transition: transform var(--transition), opacity var(--transition);
+}
+
+/* Theme switching animation */
+body[data-theme="dark"] .theme-toggle i.fa-moon {
+    opacity: 0;
+    transform: rotate(180deg);
+}
+
+body[data-theme="dark"] .theme-toggle i.fa-sun {
+    opacity: 1;
+    transform: rotate(0deg);
+}
+
+body:not([data-theme="dark"]) .theme-toggle i.fa-sun {
+    opacity: 0;
+    transform: rotate(-180deg);
+}
+
+body:not([data-theme="dark"]) .theme-toggle i.fa-moon {
+    opacity: 1;
+    transform: rotate(0deg);
+}
+
+/* Enhanced Profile Image Animation */
+.profile-image-placeholder {
+    position: relative;
+    overflow: hidden;
+}
+
+.profile-image-placeholder::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    animation: shimmer 3s infinite;
+    border-radius: 50%;
+}
+
+@keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+/* Enhanced Skill Progress Animation */
+.skill-progress {
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-progress.animated::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    animation: progressShimmer 2s infinite;
+}
+
+@keyframes progressShimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Enhanced Button Interactions */
+.btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+/* Enhanced Card Hover Effects */
+.card,
+.skill-category,
+.timeline-content,
+.feature-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before,
+.skill-category::before,
+.timeline-content::before,
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.05), transparent);
+    opacity: 0;
+    transition: opacity var(--transition);
+}
+
+.card:hover::before,
+.skill-category:hover::before,
+.timeline-content:hover::before,
+.feature-card:hover::before {
+    opacity: 1;
+}
+
+/* Enhanced Navigation Glow Effect */
+.navbar-brand:hover .brand-text {
+    text-shadow: 0 0 20px var(--primary-color);
+}
+
+/* Dark Theme Specific Enhancements */
+[data-theme="dark"] {
+    /* Enhanced shadows for dark theme */
+    --shadow-light: rgba(0, 0, 0, 0.4);
+    --shadow-medium: rgba(0, 0, 0, 0.5);
+    --shadow-dark: rgba(0, 0, 0, 0.7);
+}
+
+[data-theme="dark"] .card,
+[data-theme="dark"] .skill-category,
+[data-theme="dark"] .timeline-content {
+    box-shadow: 0 4px 6px var(--shadow-light), 0 0 20px rgba(99, 102, 241, 0.1);
+}
+
+[data-theme="dark"] .card:hover,
+[data-theme="dark"] .skill-category:hover,
+[data-theme="dark"] .timeline-content:hover {
+    box-shadow: 0 8px 25px var(--shadow-medium), 0 0 30px rgba(99, 102, 241, 0.2);
+}
+
+/* Smooth Theme Transition Animation */
+@keyframes themeTransition {
+    0% { opacity: 0.8; }
+    50% { opacity: 0.9; }
+    100% { opacity: 1; }
+}
+
+body.theme-transitioning {
+    animation: themeTransition 0.3s ease-out;
+}
+
+/* Enhanced Focus States for Accessibility */
+.btn:focus-visible,
+.nav-link:focus-visible,
+.theme-toggle:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.2);
+}
+
+/* Enhanced Loading States */
+.loading-state {
+    position: relative;
+    overflow: hidden;
+}
+
+.loading-state::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, var(--background-accent), transparent);
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    .profile-image-placeholder::before,
+    .skill-progress::after,
+    .btn::before,
+    .loading-state::before {
+        animation: none !important;
+    }
+    
+    .theme-toggle i {
+        transition: opacity var(--transition-fast) !important;
+        transform: none !important;
+    }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+    :root {
+        --border-color: #000000;
+        --text-primary: #000000;
+        --text-secondary: #333333;
+    }
+    
+    [data-theme="dark"] {
+        --border-color: #ffffff;
+        --text-primary: #ffffff;
+        --text-secondary: #cccccc;
+    }
+    
+    .btn-primary {
+        border: 2px solid var(--text-primary);
+    }
+    
+    .card,
+    .skill-category,
+    .timeline-content {
+        border: 2px solid var(--border-color);
+    }
+}
+
+/* Print Styles Enhancement */
+@media print {
+    .theme-toggle,
+    .audio-toggle,
+    .mobile-toggle,
+    .scroll-top {
+        display: none !important;
+    }
+    
+    .hero,
+    .skills,
+    .contact,
+    .cta {
+        background: white !important;
+        color: black !important;
+    }
+    
+    .card,
+    .skill-category,
+    .timeline-content {
+        border: 1px solid #ccc !important;
+        box-shadow: none !important;
+        break-inside: avoid;
+    }
+    
+    .section-title {
+        page-break-after: avoid;
+    }
+    
+    .timeline-item {
+        page-break-inside: avoid;
+    }
+}

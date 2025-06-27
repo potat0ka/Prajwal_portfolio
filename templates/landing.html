@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% block title %}Prajwal Thapa - Welcome{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/landing.css') }}">
+{% endblock %}
+
+{% block content %}
+<!-- Loading Screen -->
+<div class="loading-screen" id="loading-screen">
+    <div class="loading-content">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Loading Experience...</div>
+    </div>
+</div>
+
+<!-- Background Elements -->
+<div class="background-gradient"></div>
+<div class="floating-particles"></div>
+
+<!-- Main Container -->
+<div class="main-container">
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <span class="brand-text">Prajwal Thapa</span>
+            </div>
+            <div class="nav-controls">
+                <button class="audio-toggle" id="audio-toggle" title="Toggle Audio">
+                    <i class="fas fa-volume-mute"></i>
+                </button>
+                <button class="theme-toggle" id="theme-toggle" title="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <!-- Hero Text -->
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="greeting">Hello, I'm</span>
+                        <span class="name">Prajwal Thapa</span>
+                        <span class="tagline">Social Work Student & Tech Enthusiast</span>
+                    </h1>
+                    <p class="hero-description">
+                        Bridging the gap between social impact and technology. 
+                        Currently pursuing Bachelor of Arts in Social Work while 
+                        exploring the exciting world of Information Technology.
+                    </p>
+                    <div class="hero-actions">
+                        <button class="btn-primary" id="play-music">
+                            <i class="fas fa-play"></i>
+                            Play Music
+                        </button>
+                        <a href="{{ url_for('portfolio') }}" class="btn-secondary" id="enter-portfolio">
+                            <i class="fas fa-user"></i>
+                            View Portfolio
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 3D Guitar Container -->
+                <div class="guitar-container">
+                    <div class="guitar-scene" id="guitar-scene">
+                        <!-- Guitar controls -->
+                        <div class="guitar-controls">
+                            <button class="control-btn" id="guitar-rotate" title="Auto Rotate">
+                                <i class="fas fa-sync-alt"></i>
+                            </button>
+                            <button class="control-btn" id="guitar-reset" title="Reset View">
+                                <i class="fas fa-undo"></i>
+                            </button>
+                        </div>
+                        
+                        <!-- Guitar glow effect -->
+                        <div class="guitar-glow"></div>
+                        
+                        <!-- Sound waves animation -->
+                        <div class="sound-waves" id="sound-waves">
+                            <div class="wave wave-1"></div>
+                            <div class="wave wave-2"></div>
+                            <div class="wave wave-3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Background Audio -->
+    <audio id="background-audio" preload="auto" loop>
+        <source src="{{ url_for('static', filename='assets/acoustic-guitar-melody-2-358291.mp3') }}" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/landing.js') }}"></script>
+{% endblock %}
