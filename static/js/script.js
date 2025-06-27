@@ -427,8 +427,6 @@ function setupFormInteractions() {
         
         // Form submission handling
         form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
             // Basic validation
             const requiredFields = form.querySelectorAll('[required]');
             let isValid = true;
@@ -441,11 +439,17 @@ function setupFormInteractions() {
                 }
             });
             
-            if (isValid) {
-                showFormMessage('Thank you for your message! I\'ll get back to you soon.', 'success');
-                form.reset();
-            } else {
+            if (!isValid) {
+                e.preventDefault();
                 showFormMessage('Please fill in all required fields.', 'error');
+                return;
+            }
+            
+            // If valid, show loading message
+            const submitButton = form.querySelector('button[type="submit"]');
+            if (submitButton) {
+                submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                submitButton.disabled = true;
             }
         });
     });

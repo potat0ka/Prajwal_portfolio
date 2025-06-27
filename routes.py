@@ -1,6 +1,9 @@
-from flask import render_template, send_from_directory, abort
+from flask import render_template, send_from_directory, abort, request, flash, redirect, url_for
 from app import app
 import os
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 
 @app.route('/')
 def landing():
@@ -24,6 +27,59 @@ def download_cv():
         )
     except FileNotFoundError:
         abort(404)
+
+@app.route('/send_message', methods=['POST'])
+def send_message():
+    """Handle contact form submission"""
+    try:
+        name = request.form.get('name')
+        email = request.form.get('email')
+        message = request.form.get('message')
+        
+        # Validate required fields
+        if not name or not email or not message:
+            flash('Please fill in all required fields.', 'error')
+            return redirect(url_for('portfolio'))
+        
+        # Email configuration
+        smtp_server = "smtp.gmail.com"
+        smtp_port = 587
+        sender_email = os.environ.get('SENDER_EMAIL', 'your_email@gmail.com')
+        sender_password = os.environ.get('SENDER_PASSWORD', 'your_app_password')
+        recipient_email = "prajwalthapa780@gmail.com"
+        
+        # Create message
+        msg = MIMEMultipart()
+        msg['From'] = sender_email
+        msg['To'] = recipient_email
+        msg['Subject'] = f"Portfolio Contact Form - Message from {name}"
+        
+        # Email body
+        body = f"""
+        New message from your portfolio website:
+        
+        Name: {name}
+        Email: {email}
+        
+        Message:
+        {message}
+        """
+        
+        msg.attach(MIMEText(body, 'plain'))
+        
+        # Send email
+        with smtplib.SMTP(smtp_server, smtp_port) as server:
+            server.starttls()
+            server.login(sender_email, sender_password)
+            server.send_message(msg)
+        
+        flash('Thank you for your message! I\'ll get back to you soon.', 'success')
+        return redirect(url_for('portfolio'))
+        
+    except Exception as e:
+        print(f"Error sending email: {e}")
+        flash('Sorry, there was an error sending your message. Please try again.', 'error')
+        return redirect(url_for('portfolio'))
 
 @app.errorhandler(404)
 def not_found_error(error):

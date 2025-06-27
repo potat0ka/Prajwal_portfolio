@@ -4,31 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Prajwal Thapa - Portfolio{% endblock %}</title>
-    
+
     <!-- Meta Tags -->
     <meta name="description" content="{% block description %}Prajwal Thapa - Social Work Student & Aspiring Tech Professional. Combining social work expertise with emerging IT skills.{% endblock %}">
     <meta name="keywords" content="Prajwal Thapa, Social Work, IT, Portfolio, Student, Technology">
     <meta name="author" content="Prajwal Thapa">
-    
+
     <!-- Open Graph Tags -->
     <meta property="og:title" content="{% block og_title %}Prajwal Thapa - Portfolio{% endblock %}">
     <meta property="og:description" content="{% block og_description %}Social Work Student & Aspiring Tech Professional{% endblock %}">
     <meta property="og:type" content="website">
-    
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <!-- Stylesheets -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     {% block extra_css %}{% endblock %}
 </head>
-<body>
-    {% block content %}
+<body data-theme="dark">
+        <!-- Flash Messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="flash-messages">
+                    {% for category, message in messages %}
+                        <div class="flash-message flash-{{ category }}">
+                            <i class="fas fa-{{ 'check-circle' if category == 'success' else 'exclamation-circle' }}"></i>
+                            {{ message }}
+                            <button class="flash-close" onclick="this.parentElement.remove()">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        {% block content %}
     <!-- Default error page -->
     <div class="container">
         <div class="error-page">
@@ -41,13 +58,13 @@
         </div>
     </div>
     {% endblock %}
-    
+
     <!-- Theme Toggle Script - Load first -->
     <script src="{{ url_for('static', filename='js/theme.js') }}"></script>
-    
+
     <!-- Three.js for 3D graphics - Only load when needed -->
     {% block three_js %}{% endblock %}
-    
+
     {% block extra_js %}{% endblock %}</body>
 </body>
 </html>
