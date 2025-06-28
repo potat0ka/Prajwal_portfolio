@@ -12,31 +12,6 @@ A modern, responsive personal portfolio website built with Flask, featuring 3D g
 - **CV Download**: Direct PDF download functionality
 - **Modern UI**: Clean, professional design with smooth animations
 
-## 🚀 Quick Deploy on Replit
-
-### Method 1: Fork This Repository
-1. **Fork the project** on Replit
-2. **Click the Run button** - That's it! Your site will be live instantly.
-
-### Method 2: Manual Setup
-1. **Create a new Flask Repl** on Replit
-2. **Upload your files** to the new Repl
-3. **Click Run** to start your portfolio
-
-## 🔧 Configuration
-
-### Environment Variables (Optional)
-For the contact form to work, set these in Replit Secrets:
-- `SENDER_EMAIL`: Your Gmail address
-- `SENDER_PASSWORD`: Your Gmail app password
-- `SESSION_SECRET`: Random secret key for sessions
-
-### Email Setup
-1. Go to your **Google Account settings**
-2. Enable **2-Factor Authentication**
-3. Generate an **App Password** for Gmail
-4. Add the credentials to Replit Secrets
-
 ## 📁 Project Structure
 
 ```
@@ -55,20 +30,6 @@ For the contact form to work, set these in Replit Secrets:
 │   └── assets/        # Images, CV, 3D models
 └── .replit           # Replit configuration
 ```
-
-## 🎯 Deployment Steps
-
-### On Replit (Recommended)
-1. **Run Locally**: Click the Run button to test
-2. **Deploy**: Click Deploy → Autoscale → Set up deployment
-3. **Configure**:
-   - Machine: 1vCPU, 2 GiB RAM (default)
-   - Max machines: 3 (default)
-   - Choose your domain name
-   - Run command: `gunicorn --bind 0.0.0.0:5000 main:app`
-4. **Deploy**: Click Deploy button
-
-Your portfolio will be live in minutes!
 
 ## 🛠️ Customization
 
