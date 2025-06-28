@@ -1,10 +1,11 @@
+
 import os
 import logging
 from flask import Flask
 from werkzeug.middleware.proxy_fix import ProxyFix
 
 # Configure logging
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.INFO)
 
 # Create the Flask app
 app = Flask(__name__)
@@ -15,4 +16,7 @@ app.wsgi_app = ProxyFix(app.wsgi_app, x_proto=1, x_host=1)
 from routes import *
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    # Use environment variables for deployment flexibility
+    port = int(os.environ.get('PORT', 5000))
+    debug = os.environ.get('FLASK_ENV') == 'development'
+    app.run(host='0.0.0.0', port=port, debug=debug)

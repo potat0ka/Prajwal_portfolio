@@ -19,13 +19,16 @@ def portfolio():
 def download_cv():
     """Download CV functionality"""
     try:
+        # Use absolute path for deployment compatibility
+        static_dir = os.path.abspath(os.path.join(app.root_path, 'static', 'assets'))
         return send_from_directory(
-            directory=os.path.join(app.root_path, 'static', 'assets'),
+            directory=static_dir,
             path='Prajwal_Thapa_CV.pdf',
             as_attachment=True,
             download_name='Prajwal_Thapa_CV.pdf'
         )
     except FileNotFoundError:
+        app.logger.error("CV file not found")
         abort(404)
 
 @app.route('/send_message', methods=['POST'])
