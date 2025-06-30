@@ -1,9 +1,7 @@
 from flask import render_template, send_from_directory, abort, request, flash, redirect, url_for
-from app import app
+from app import app, mail
+from flask_mail import Message
 import os
-import smtplib
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
 
 @app.route('/')
 def landing():
@@ -37,25 +35,16 @@ def send_message():
     try:
         name = request.form.get('name')
         email = request.form.get('email')
-        message = request.form.get('message')
+        message_body = request.form.get('message')
         
         # Validate required fields
-        if not name or not email or not message:
+        if not name or not email or not message_body:
             flash('Please fill in all required fields.', 'error')
             return redirect(url_for('portfolio'))
         
-        # Email configuration
-        smtp_server = "smtp.gmail.com"
-        smtp_port = 587
-        sender_email = os.environ.get('SENDER_EMAIL', 'your_email@gmail.com')
-        sender_password = os.environ.get('SENDER_PASSWORD', 'your_app_password')
-        recipient_email = "prajwalthapa780@gmail.com"
-        
         # Create message
-        msg = MIMEMultipart()
-        msg['From'] = sender_email
-        msg['To'] = recipient_email
-        msg['Subject'] = f"Portfolio Contact Form - Message from {name}"
+        subject = f"Portfolio Contact Form - Message from {name}"
+        recipient = "prajwalthapa780@gmail.com"
         
         # Email body
         body = f"""
@@ -65,22 +54,19 @@ def send_message():
         Email: {email}
         
         Message:
-        {message}
+        {message_body}
         """
         
-        msg.attach(MIMEText(body, 'plain'))
+        msg = Message(subject, recipients=[recipient], body=body)
         
         # Send email
-        with smtplib.SMTP(smtp_server, smtp_port) as server:
-            server.starttls()
-            server.login(sender_email, sender_password)
-            server.send_message(msg)
+        mail.send(msg)
         
         flash('Thank you for your message! I\'ll get back to you soon.', 'success')
         return redirect(url_for('portfolio'))
         
     except Exception as e:
-        print(f"Error sending email: {e}")
+        app.logger.error(f"Error sending email: {e}")
         flash('Sorry, there was an error sending your message. Please try again.', 'error')
         return redirect(url_for('portfolio'))
 
